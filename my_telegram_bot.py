@@ -1,6 +1,8 @@
 import asyncio
 import logging
+import os
 import random
+from dotenv import load_dotenv
 from aiogram.filters import Command
 from aiogram.types import Message, KeyboardButton, ReplyKeyboardMarkup, FSInputFile, ReplyKeyboardRemove
 from aiogram import Bot, Dispatcher
@@ -10,9 +12,9 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 
 
-# Токен вашего бота
-API_TOKEN = '7038474586:AAH2O_IiqfE9muSnWV0kztjg26bzT0UUlpg'
-
+# Токен бота
+load_dotenv()
+API_TOKEN = os.getenv('API_TOKEN')
 
 bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher(storage=MemoryStorage())
